@@ -1,0 +1,70 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-print-mybatis-p6spy-logs
+  aop:
+    auto: true
+  thymeleaf:
+    cache: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    name: user
+    url: jdbc:p6spy:mysql://119.29.185.228:3306/user?characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=true
+    username: root
+    password: 密码
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    ###################以下为druid增加的配置###########################
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙，此处是filter修改的地方
+    filters:
+      commons-log.connection-logger-name: stat,wall,log4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    useGlobalDataSourceStat: true
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:me/kany/project/learning/spring/mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: me.kany.project.learning.spring.entity  # 注意：对应实体类的路径
+
+## 日志的配置
+logging:
+  level:
+    ROOT: INFO
+    org.thymeleaf.TemplateEngine: INFO
+    org.springframework.boot.autoconfigure.logging: INFO
+    org.springframework.core.env.PropertySourcesPropertyResolver: INFO
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: INFO
+    cn.peison.project.edu.common: DEBUG
+    cn.peison.project.edu: INFO
+    cn.peison.project.edu.mapper: INFO
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:【%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint}】 %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
+    file: 【%d{yyyy-MM-dd HH:mm:ss.SSS}】 %-5level [%thread] --- %logger --- %msg%n
+  file:
+    max-history: 20
+    max-size: 20MB
+  path: logs/
