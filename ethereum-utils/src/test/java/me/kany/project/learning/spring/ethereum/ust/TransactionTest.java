@@ -52,6 +52,5 @@ public class TransactionTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

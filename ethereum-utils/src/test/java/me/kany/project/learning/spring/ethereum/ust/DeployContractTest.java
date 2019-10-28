@@ -169,7 +169,7 @@ public class DeployContractTest {
         Ustar ustar = Ustar.load(Constants.USTAR_CONTRACT_ADDRESS, web3j, transactionManager, new DefaultGasProvider());
         Tuple3<BigInteger, BigInteger, String> result = null;
         try {
-            result = ustar.getCommodityInfoById(BigInteger.valueOf(4L)).send();
+            result = ustar.getCommodityInfoById(BigInteger.valueOf(1L)).send();
         } catch (Exception e) {
             e.printStackTrace();
         }

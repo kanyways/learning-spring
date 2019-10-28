@@ -21,6 +21,8 @@
         <module>email-utils</module>
         <!-- ethereum utils -->
         <module>ethereum-utils</module>
+        <!-- spring mybatis p6spy sql log -->
+        <module>spring-print-mybatis-p6spy-logs</module>
     </modules>
 
     <properties>
