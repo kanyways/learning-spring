@@ -17,6 +17,8 @@
         <module>mybatis-plus-create</module>
         <!-- common utils -->
         <module>common-utils</module>
+        <!-- send calendar email -->
+        <module>email-utils</module>
     </modules>
 
     <properties>
