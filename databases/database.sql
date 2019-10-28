@@ -1,0 +1,1 @@
+CREATE TABLE `user`.`users` ( `uid` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '用户的Id', `login_name` VARCHAR(50) NOT NULL COMMENT '登录名', `mobile` VARCHAR(13) COMMENT '用户手机', `pass_word` VARCHAR(32) NOT NULL COMMENT '用户密码', `create_time` BIGINT COMMENT '创建时间', `last_login_time` BIGINT COMMENT '最后登录时间', PRIMARY KEY (`uid`) );

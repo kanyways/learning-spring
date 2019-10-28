@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.kany.project.learning.spring</groupId>
+    <artifactId>learning-spring</artifactId>
+    <version>1.0.0.0</version>
+    <packaging>pom</packaging>
+    <name>learning-spring</name>
+    <url>https://github.com/kanyways/learning-spring</url>
+
+    <!--模块信息-->
+    <modules>
+        <!-- mybatis plus create -->
+        <module>mybatis-plus-create</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <springloaded.version>1.2.8.RELEASE</springloaded.version>
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
+        <mysql.version>8.0.18</mysql.version>
+        <druid.version>1.1.20</druid.version>
+        <!-- MyBatis 版本 -->
+        <mybatis.version>3.5.2</mybatis.version>
+        <!-- MyBatis Spring的版本 -->
+        <mybatis-spring.version>2.0.2</mybatis-spring.version>
+        <!-- Spring版本号 -->
+        <spring.version>5.2.0.RELEASE</spring.version>
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <lombok.version>1.18.10</lombok.version>
+        <velocity-engine-core.version>2.1</velocity-engine-core.version>
+        <velocity.version>1.7</velocity.version>
+        <velocity-tools.version>2.0</velocity-tools.version>
+        <!-- lombok的版本管理 -->
+        <lombok.version>1.18.10</lombok.version>
+        <web3j.version>4.2.0</web3j.version>
+        <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
+        <!-- 阿里巴巴fastjson版本 -->
+        <fastjson.version>1.2.49</fastjson.version>
+        <!-- POI的版本，这个版本使用shiftRows正常 -->
+        <poi.version>3.17</poi.version>
+        <!-- guava的版本 -->
+        <guava.version>22.0</guava.version>
+        <!-- commons lang3 的版本 -->
+        <commons-lang3.verion>3.9</commons-lang3.verion>
+        <!-- Java发送邮件的工具包 -->
+        <javamail.version>1.4.7</javamail.version>
+        <!-- PDF 转 HTML -->
+        <pdf2dom.version>1.8</pdf2dom.version>
+        <pdfbox.version>2.0.16</pdfbox.version>
+        <!-- slf4j-api的版本 -->
+        <slf4j-api.version>1.7.28</slf4j-api.version>
+        <!-- log4j日志文件管理包版本 -->
+        <slf4j.version>1.7.28</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <jackson.version>2.10.0</jackson.version>
+        <!-- log4jdbc 的版本 -->
+        <log4jdbc.version>1.2</log4jdbc.version>
+        <!-- Google数据库执行语句日志 -->
+        <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
+        <!-- p6spy 数据库执行语句 -->
+        <p6spy.version>3.8.6</p6spy.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!--******** logback and slf4j ******** -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <!--**************** logback and slf4j **************** -->
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
