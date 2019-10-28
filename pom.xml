@@ -27,6 +27,8 @@
         <module>spring-print-mybatis-jdbcdslog-logs</module>
         <!-- spring boot mybatis p6spy sql log -->
         <module>spring-boot-print-mybatis-p6spy-logs</module>
+        <!-- spring boot mybatis log4jdbc sql log -->
+        <module>spring-boot-print-mybatis-log4jdbc-logs</module>
     </modules>
 
     <properties>
