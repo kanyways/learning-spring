@@ -23,6 +23,8 @@
         <module>ethereum-utils</module>
         <!-- spring mybatis p6spy sql log -->
         <module>spring-print-mybatis-p6spy-logs</module>
+        <!-- spring mybatis jdbcdslog sql log -->
+        <module>spring-print-mybatis-jdbcdslog-logs</module>
     </modules>
 
     <properties>
