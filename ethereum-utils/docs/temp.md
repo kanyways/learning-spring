@@ -1,0 +1,15 @@
+- https://metamask.io
+- https://faucet.metamask.io
+- https://faucet.rinkeby.io
+- https://www.jianshu.com/p/89aa70bdbb4d
+- https://www.chainnews.com/articles/391977369156.htm
+- https://ethfans.org/makoshan/articles/420
+- https://www.lianyi.com/zixun/976065
+- https://ethgasstation.info/json/ethgasAPI.json
+- [估算GasPrice](http://blog.hubwiz.com/2018/04/12/how-to-estimate-gas/)
+- http://blog.hubwiz.com/2018/06/27/web3j-smart-contracts/
+- https://blog.csdn.net/alik20/article/details/54881003
+- https://zhuanlan.zhihu.com/p/26041919
+- https://www.cnblogs.com/hongpxiaozhu/p/8574986.html
+- https://www.chainnews.com/articles/204914094688.htm
+- https://blog.51cto.com/13697184/2133497

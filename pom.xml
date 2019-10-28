@@ -19,6 +19,8 @@
         <module>common-utils</module>
         <!-- send calendar email -->
         <module>email-utils</module>
+        <!-- ethereum utils -->
+        <module>ethereum-utils</module>
     </modules>
 
     <properties>
