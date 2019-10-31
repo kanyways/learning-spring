@@ -67,4 +67,4 @@ logging:
   file:
     max-history: 20
     max-size: 20MB
-  path: logs/
+    path: logs/

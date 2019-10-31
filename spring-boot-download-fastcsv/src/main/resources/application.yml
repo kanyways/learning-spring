@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: spring-boot-print-mybatis-p6spy-logs
+    name: spring-boot-download-fastcsv
   aop:
     auto: true
   thymeleaf:
@@ -13,10 +13,10 @@ spring:
     time-zone: GMT+8
   datasource:
     name: user
-    url: jdbc:p6spy:mysql://119.29.185.228:3306/user?characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=true
+    url: jdbc:log4jdbc:mysql://119.29.185.228:3306/user?characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=true
     username: root
     password: 密码
-    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    driver-class-name: net.sf.log4jdbc.DriverSpy
     ###################以下为druid增加的配置###########################
     type: com.alibaba.druid.pool.DruidDataSource
     # 下面为连接池的补充设置，应用到上面所有数据源中
@@ -53,7 +53,7 @@ mybatis:
 ## 日志的配置
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     org.thymeleaf.TemplateEngine: INFO
     org.springframework.boot.autoconfigure.logging: INFO
     org.springframework.core.env.PropertySourcesPropertyResolver: INFO

@@ -29,6 +29,8 @@
         <module>spring-boot-print-mybatis-p6spy-logs</module>
         <!-- spring boot mybatis log4jdbc sql log -->
         <module>spring-boot-print-mybatis-log4jdbc-logs</module>
+        <!-- spring boot download fastcsv files -->
+        <module>spring-boot-download-fastcsv</module>
     </modules>
 
     <properties>
@@ -79,6 +81,8 @@
         <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
         <!-- p6spy 数据库执行语句 -->
         <p6spy.version>3.8.6</p6spy.version>
+        <!--fastcsv version -->
+        <fastcsv.version>1.0.3</fastcsv.version>
     </properties>
 
     <dependencies>
