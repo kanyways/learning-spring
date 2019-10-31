@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -73,22 +72,26 @@ public class UsersController {
         String fileName = "user-list";
         CsvWriter csvWriter = new CsvWriter();
         try (CsvAppender csvAppender = csvWriter.append(response.getWriter())) {
-            // 设置response参数，可以打开下载页面
-            response.reset();
-            //设置响应文本格式
-            response.setCharacterEncoding("UTF-8");
-            response.setContentType("text/csv;charset=utf-8");
+            /**
+             * FIXME 中文乱码
+             */
+            response.setCharacterEncoding("gbk");
+            response.setContentType("text/csv;charset=gbk");
             response.addHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName + ".csv", "UTF-8"));
             //查询数据库的文件
             List<Users> users = usersService.list();
             //设置头部
             csvAppender.appendLine("用户Id", "登录名称", "手机号");
-            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//            JDK1.8的写法
+//            users.forEach(user -> {
+//                try {
+//                    csvAppender.appendLine(user.getUid().toString(),user.getLoginName(),user.getMobile());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            });
             for (Users user : users) {
-                csvAppender.appendField(user.getUid().toString());
-                csvAppender.appendField(user.getLoginName());
-                csvAppender.appendField(user.getMobile());
-                csvAppender.endLine();
+                csvAppender.appendLine(user.getUid().toString(), user.getLoginName(), user.getMobile());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -111,8 +114,7 @@ public class UsersController {
             // 设置response参数，可以打开下载页面
             response.reset();
             //设置响应文本格式
-            response.setCharacterEncoding("UTF-8");
-            response.setContentType("text/csv;charset=utf-8");
+            response.setContentType("text/csv;charset=gbk");
             response.addHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode("用户列表.csv", "UTF-8"));
             Collection<String[]> data = new ArrayList<>();
             //添加头部

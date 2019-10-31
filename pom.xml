@@ -31,6 +31,8 @@
         <module>spring-boot-print-mybatis-log4jdbc-logs</module>
         <!-- spring boot download fastcsv files -->
         <module>spring-boot-download-fastcsv</module>
+        <!-- spring boot download native csv files -->
+        <module>spring-boot-download-nativecsv</module>
     </modules>
 
     <properties>
