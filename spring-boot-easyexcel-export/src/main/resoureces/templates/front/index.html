@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{index.title}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <style type="text/css">
+        .panel-wrapper{position: absolute; width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: unset;}
+        .panel-container{position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 96%; background: #fff; border-radius: 3px; box-shadow: 0 0 40px #666666;}
+        .panel-heading ul{margin:0px;padding:0px 0px 0px 6px;text-indent: 0px;}
+        .panel-heading ul li{float:left;width:195px;padding:2px; line-height:30px;text-indent: 0px;}
+        a{color: #00a67c;text-decoration: none;}
+        a:hover{color:#d14;text-decoration: none;}
+        .article-content{text-indent:0px;font-size: 15px;line-height: 26px;text-indent: 30px;word-break: break-all;word-wrap: break-word;position: relative;padding: 10px 20px 20px 20px;background-color: #fff;}
+        .article-content blockquote {margin: 15px auto;border: 1px solid #d6e9c6;border-left-width: 3px;padding: 5px 15px 10px;background-color: #fafcf9;font-size: 14px;border-radius: 3px; box-shadow: 0 0 40px #d6e9c6;}
+        .article-content blockquote p{margin: 6px 16px;padding: 0;font-size: 14px;}
+        h2{font-size: 18px;font-weight: blod;margin: 20px -20px 20px -24px;padding: 10px 20px 9px 10px;line-height: 18px;border-left: 4px solid #00a67c;background-color: #fbfbfb;}
+        @media screen and (max-width: 600px) {
+            .panel-container {left: 2%; top: 10px;bottom:10px; transform: translate(0,0)}
+        }
+        .clear{clear:both;}
+    </style>
+</head>
+<body>
+<div class="panel-wrapper">
+    <div class="panel-container">
+        <div class="article-content">
+            <h2>Explain</h2>
+            <blockquote><p th:text="#{index.content}"></p></blockquote>
+            <div class="panel-heading">
+                <a href="/download" th:text="#{index.download}"></a>
+                <div class="clear"></div>
+            </div>
+            <div style="width: 200px;margin: 0 auto;"><a th:href="@{/(lang=('zh_CN'))}">中文</a><span> | </span><a th:href="@{/(lang=('en_US'))}">English</a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
