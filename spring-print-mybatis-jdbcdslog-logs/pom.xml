@@ -103,7 +103,7 @@
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <artifactId>mybatis-plus</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
         <dependency>
@@ -198,7 +198,7 @@
     </profiles>
 
     <build>
-        <finalName>spring-print-mybatis-logs</finalName>
+        <finalName>spring-print-mybatis-jdbcdslog-logs</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
