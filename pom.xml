@@ -133,6 +133,7 @@
         <!--**************** logback and slf4j **************** -->
     </dependencies>
 
+    <!--如果用户没有配置自己的 mirror 文件，则使用项目自带的镜像地址拉取-->
     <repositories>
         <repository>
             <id>nexus-aliyun</id>

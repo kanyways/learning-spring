@@ -2,6 +2,8 @@
 
 When I use spring boot and mybatis, I need to print the complete SQL log. Therefore, log4jdbc is used to output logs.
 
+Log4jdbc will not be updated in 2013, so it is recommended not to use it when selecting. It's better to use p6spy.
+
 
 add log4jdbc.properties
 ```bash
