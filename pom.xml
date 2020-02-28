@@ -35,6 +35,7 @@
         <module>spring-boot-download-nativecsv</module>
         <!-- spring boot download easyexcel files -->
         <module>spring-boot-easyexcel-export</module>
+        <module>spring-boot-shiro</module>
     </modules>
 
     <properties>
