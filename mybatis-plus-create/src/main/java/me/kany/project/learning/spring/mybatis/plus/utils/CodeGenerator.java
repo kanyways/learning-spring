@@ -148,10 +148,21 @@ public class CodeGenerator {
         log.debug("basePath = {}", basePath);
         log.debug("mapperPath = {}", mapperPath);
         gc.setOutputDir(basePath);
-        gc.setAuthor(author);
-        gc.setOpen(false);
-        gc.setServiceName("I%sService");
-        gc.setFileOverride(true);
+        gc.setAuthor(author);                       //作者
+        gc.setOpen(false);                          //是否打开输出目录 默认值:true
+
+        gc.setFileOverride(true);                   //是否覆蓋已有文件 默认值：false
+
+//	        gc.setSwagger2(true);					//开启 swagger2 模式 默认false
+        gc.setBaseColumnList(true);                //开启 baseColumnList 默认false
+        gc.setBaseResultMap(true);                //开启 BaseResultMap 默认false
+//        gc.setEntityName("%sEntity");            //实体命名方式  默认值：null 例如：%sEntity 生成 UserEntity
+        gc.setMapperName("%sMapper");            //mapper 命名方式 默认值：null 例如：%sDao 生成 UserDao
+        gc.setXmlName("%sMapper");                //Mapper xml 命名方式   默认值：null 例如：%sDao 生成 UserDao.xml
+        gc.setServiceName("I%sService");            //service 命名方式   默认值：null 例如：%sBusiness 生成 UserBusiness
+        gc.setServiceImplName("%sServiceImpl");    //service impl 命名方式  默认值：null 例如：%sBusinessImpl 生成 UserBusinessImpl
+        gc.setControllerName("%sController");    //controller 命名方式    默认值：null 例如：%sAction 生成 UserAction
+
         return gc;
     }
 
@@ -187,13 +198,22 @@ public class CodeGenerator {
      * @return
      */
     private static StrategyConfig initStrategyConfig(String tableName) {
+        // 策略配置	数据库表配置，通过该配置，可指定需要生成哪些表或者排除哪些表
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true);
-        // strategy.setTablePrefix("tb");
-        strategy.setInclude(tableName);
-        strategy.setRestControllerStyle(true);
+        strategy.setNaming(NamingStrategy.underline_to_camel);    //表名生成策略
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略, 未指定按照 naming 执行
+//	        strategy.setCapitalMode(true);			// 全局大写命名 ORACLE 注意
+//	        strategy.setTablePrefix("prefix");		//表前缀
+//	        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");	//自定义继承的Entity类全称，带包名
+//	        strategy.setSuperEntityColumns(new String[] { "test_id", "age" }); 	//自定义实体，公共字段
+        strategy.setEntityLombokModel(true);    //【实体】是否为lombok模型（默认 false
+        strategy.setRestControllerStyle(true);    //生成 @RestController 控制器
+//	        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");	//自定义继承的Controller类全称，带包名
+        strategy.setInclude(tableName);        //需要包含的表名，允许正则表达式（与exclude二选一配置）
+//	        strategy.setInclude(new String[] { "user" }); // 需要生成的表可以多张表
+//	        strategy.setExclude(new String[]{"test"}); // 排除生成的表
+        strategy.setControllerMappingHyphenStyle(true);    //驼峰转连字符
+        strategy.setTablePrefix(new String[]{"tbl_","tb_"});    //表前缀
 
         return strategy;
     }
