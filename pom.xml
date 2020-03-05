@@ -35,7 +35,10 @@
         <module>spring-boot-download-nativecsv</module>
         <!-- spring boot download easyexcel files -->
         <module>spring-boot-easyexcel-export</module>
+        <!-- spring boot shiro -->
         <module>spring-boot-shiro</module>
+        <!-- spring boot websocket -->
+        <module>spring-boot-websocket</module>
     </modules>
 
     <properties>
@@ -62,7 +65,7 @@
         <web3j.version>4.2.0</web3j.version>
         <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
         <!-- 阿里巴巴fastjson版本 -->
-        <fastjson.version>1.2.49</fastjson.version>
+        <fastjson.version>1.2.62</fastjson.version>
         <!-- POI的版本，这个版本使用shiftRows正常 -->
         <poi.version>3.17</poi.version>
         <!-- guava的版本 -->
