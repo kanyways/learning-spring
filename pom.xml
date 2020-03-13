@@ -39,6 +39,8 @@
         <module>spring-boot-shiro</module>
         <!-- spring boot websocket -->
         <module>spring-boot-websocket</module>
+        <!-- spring boot security jwt -->
+        <module>spring-boot-jwt-nosession</module>
     </modules>
 
     <properties>
@@ -93,6 +95,10 @@
         <fastcsv.version>1.0.3</fastcsv.version>
         <!-- alibaba easyexcel verison -->
         <easyexcel.version>2.1.3</easyexcel.version>
+        <!--Jwt 版本-->
+        <jjwt.version>0.11.0</jjwt.version>
+        <!--HuTool 工具类-->
+        <hutool.version>5.2.1</hutool.version>
     </properties>
 
     <dependencies>

@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -274,6 +275,14 @@ public class DateUtilsTest {
         log.debug("已经经历：{} 时", duration.toHours());
         log.debug("已经经历：{} 分", duration.toMinutes());
         log.debug("已经经历：{} 秒", duration.toMillis() / 1000);
+    }
+
+    @Test
+    public void LocalDateTimeToDate() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = localDateTime.atZone(zone).toInstant();
+        log.debug(Date.from(instant).toString());
     }
 
     @Test
