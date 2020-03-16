@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-redis-sentinel
+  aop:
+    auto: true
+  thymeleaf:
+    cache: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  # Redis的配置
+  redis:
+    database: 0
+    password: 密码
+    timeout: 500ms # 连接超时时间（毫秒）
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    sentinel:
+      master: mymaster
+      nodes:
+        - 119.29.185.228:26379
+        - 119.29.185.228:26380
+        - 119.29.185.228:26381
+
+## 日志的配置
+logging:
+  level:
+    ROOT: DEBUG
+    org.thymeleaf.TemplateEngine: INFO
+    org.springframework.boot.autoconfigure.logging: INFO
+    org.springframework.core.env.PropertySourcesPropertyResolver: INFO
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: INFO
+    me.kany.project.learning: DEBUG
+    me.kany.project.learning.mapper: INFO
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:【%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint}】 %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
+    file: 【%d{yyyy-MM-dd HH:mm:ss.SSS}】 %-5level [%thread] --- %logger --- %msg%n
+  file:
+    max-history: 20
+    max-size: 20MB
+    path: logs/
