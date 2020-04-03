@@ -41,7 +41,10 @@
         <module>spring-boot-jwt-nosession</module>
         <!--spring boot redis cluster-->
         <module>spring-boot-redis-cluster</module>
+        <!-- spring boot redis sentinel -->
         <module>spring-boot-redis-sentinel</module>
+        <!-- Spring RestTemplate -->
+        <module>spring-boot-rest-template</module>
     </modules>
 
     <properties>
