@@ -45,6 +45,7 @@
         <module>spring-boot-redis-sentinel</module>
         <!-- Spring RestTemplate -->
         <module>spring-boot-rest-template</module>
+        <module>spring-boot-oss-ueditor</module>
     </modules>
 
     <properties>
@@ -71,7 +72,7 @@
         <web3j.version>4.2.0</web3j.version>
         <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
         <!-- 阿里巴巴fastjson版本 -->
-        <fastjson.version>1.2.62</fastjson.version>
+        <fastjson.version>1.2.70</fastjson.version>
         <!-- POI的版本，这个版本使用shiftRows正常 -->
         <poi.version>3.17</poi.version>
         <!-- guava的版本 -->
@@ -89,6 +90,7 @@
         <slf4j.version>1.7.28</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <jackson.version>2.10.0</jackson.version>
+        <logstash-logback.version>4.8</logstash-logback.version>
         <!-- log4jdbc 的版本 -->
         <log4jdbc.version>1.2</log4jdbc.version>
         <!-- Google数据库执行语句日志 -->
