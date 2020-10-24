@@ -46,6 +46,7 @@
         <!-- Spring RestTemplate -->
         <module>spring-boot-rest-template</module>
         <module>spring-boot-oss-ueditor</module>
+        <module>java-agent</module>
     </modules>
 
     <properties>
@@ -78,7 +79,7 @@
         <!-- guava的版本 -->
         <guava.version>22.0</guava.version>
         <!-- commons lang3 的版本 -->
-        <commons-lang3.verion>3.9</commons-lang3.verion>
+        <commons-lang3.verion>3.11</commons-lang3.verion>
         <!-- Java发送邮件的工具包 -->
         <javamail.version>1.4.7</javamail.version>
         <!-- PDF 转 HTML -->
@@ -105,6 +106,8 @@
         <jjwt.version>0.11.0</jjwt.version>
         <!--HuTool 工具类-->
         <hutool.version>5.2.1</hutool.version>
+        <javassist.version>3.27.0-GA</javassist.version>
+        <asm.version>9.0</asm.version>
     </properties>
 
     <dependencies>
