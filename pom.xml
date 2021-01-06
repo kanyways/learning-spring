@@ -106,6 +106,8 @@
         <jjwt.version>0.11.0</jjwt.version>
         <!--HuTool 工具类-->
         <hutool.version>5.2.1</hutool.version>
+        <!--bouncycastle 的加密工具包-->
+        <bcprov.version>1.66</bcprov.version>
         <javassist.version>3.27.0-GA</javassist.version>
         <asm.version>9.0</asm.version>
     </properties>

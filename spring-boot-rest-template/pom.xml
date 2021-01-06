@@ -8,7 +8,7 @@
         <artifactId>learning-spring</artifactId>
         <version>1.0.0.0</version>
     </parent>
-    <artifactId>spring-boot-resttemplate</artifactId>
+    <artifactId>spring-boot-rest-template</artifactId>
     <version>1.0.0.0</version>
 
     <name>spring-boot-rest-template</name>
