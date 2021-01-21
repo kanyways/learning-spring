@@ -47,6 +47,7 @@
         <module>spring-boot-rest-template</module>
         <module>spring-boot-oss-ueditor</module>
         <module>java-agent</module>
+        <module>spring-boot-xss</module>
     </modules>
 
     <properties>
@@ -110,6 +111,7 @@
         <bcprov.version>1.66</bcprov.version>
         <javassist.version>3.27.0-GA</javassist.version>
         <asm.version>9.0</asm.version>
+        <jsoup.version>1.10.2</jsoup.version>
     </properties>
 
     <dependencies>
