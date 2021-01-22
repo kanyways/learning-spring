@@ -9,10 +9,13 @@ package me.kany.project.learning.spring.config;
 
 import com.google.common.collect.Maps;
 import me.kany.project.learning.spring.filter.XssFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.DispatcherType;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -28,17 +31,31 @@ import java.util.Map;
 @Configuration
 public class XssConfig {
 
+    @Value("${xss.enabled:true}")
+    private String enabled;
+
+    @Value("${xss.excludes:}")
+    private String excludes;
+
+    @Value("${xss.includes$:}")
+    private String includes;
+
+    @Value("${xss.urlPatterns:/*}")
+    private String urlPatterns;
+
     @Bean
-    public FilterRegistrationBean xssFilterRegistrationBean() {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(new XssFilter());
-        filterRegistrationBean.setOrder(1);
-        filterRegistrationBean.setEnabled(true);
-        filterRegistrationBean.addUrlPatterns("/*");
-        Map<String, String> initParameters = Maps.newHashMap();
-        initParameters.put("excludes", "/favicon.ico,/img/*,/js/*,/css/*");
-        initParameters.put("isIncludeRichText", "true");
-        filterRegistrationBean.setInitParameters(initParameters);
-        return filterRegistrationBean;
+    public FilterRegistrationBean<XssFilter> xssFilterRegistrationBean() {
+        FilterRegistrationBean<XssFilter> registration = new FilterRegistrationBean<>();
+        registration.setDispatcherTypes(DispatcherType.REQUEST);
+        registration.setFilter(new XssFilter());
+        registration.addUrlPatterns(urlPatterns.split(","));
+        registration.setName("XssFilter");
+        registration.setOrder(Integer.MAX_VALUE);
+        Map<String, String> initParameters = new HashMap<>();
+        initParameters.put("excludes", excludes);
+        initParameters.put("includes", excludes);
+        initParameters.put("enabled", enabled);
+        registration.setInitParameters(initParameters);
+        return registration;
     }
 }

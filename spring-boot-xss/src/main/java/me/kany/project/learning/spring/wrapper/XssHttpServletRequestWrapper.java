@@ -9,17 +9,18 @@ package me.kany.project.learning.spring.wrapper;
 
 import lombok.extern.log4j.Log4j2;
 import me.kany.project.learning.spring.utils.JsoupUtil;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * ClassName:XssHttpServletRequestWrapper<br/>
@@ -33,135 +34,166 @@ import java.nio.charset.StandardCharsets;
  */
 @Log4j2
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
-    HttpServletRequest orgRequest = null;
-    private boolean isIncludeRichText = false;
+    HttpServletRequest orgRequest;
 
-    public XssHttpServletRequestWrapper(HttpServletRequest request, boolean isIncludeRichText) {
+    String encoding;
+
+    JsoupUtil jsoupUtil;
+
+    private final static String JSON_CONTENT_TYPE = "application/json";
+
+    private final static String CONTENT_TYPE = "Content-Type";
+
+
+    /**
+     * @param request     HttpServletRequest
+     * @param encoding    编码
+     * @param excludeTags 例外的特定标签
+     * @param includeTags 需要过滤的标签
+     */
+    public XssHttpServletRequestWrapper(HttpServletRequest request, String encoding, List<String> excludeTags, List<String> includeTags) {
         super(request);
         orgRequest = request;
-        this.isIncludeRichText = isIncludeRichText;
+        this.encoding = encoding;
+        this.jsoupUtil = JsoupUtil.create(excludeTags, includeTags);
     }
 
     /**
-     * 覆盖getParameter方法，将参数名和参数值都做xss过滤。<br/>
-     * 如果需要获得原始的值，则通过super.getParameterValues(name)来获取<br/>
-     * getParameterNames,getParameterValues和getParameterMap也可能需要覆盖
+     * @param request  HttpServletRequest
+     * @param encoding 编码
      */
+    public XssHttpServletRequestWrapper(HttpServletRequest request, String encoding) {
+        this(request, encoding, null, null);
+    }
+
+    private String xssFilter(String input) {
+        return jsoupUtil.clean(input);
+    }
+
+    @Override
+    public ServletInputStream getInputStream() throws IOException {
+        // 非json处理
+        if (!JSON_CONTENT_TYPE.equalsIgnoreCase(super.getHeader(CONTENT_TYPE))) {
+            return super.getInputStream();
+        }
+
+        String body = null;
+
+        try (InputStream in = super.getInputStream()) {
+            body = IOUtils.toString(in, encoding);
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
+
+        //空串处理直接返回
+        if (StringUtils.isBlank(body)) {
+            return super.getInputStream();
+        }
+
+        // xss过滤
+        body = xssFilter(body);
+        return new RequestCachingInputStream(body.getBytes(encoding));
+
+    }
+
     @Override
     public String getParameter(String name) {
-        if (("content".equals(name) || name.endsWith("WithHtml")) && !isIncludeRichText) {
-            return super.getParameter(name);
-        }
-        name = JsoupUtil.clean(name);
-        String value = super.getParameter(name);
+        String value = super.getParameter(xssFilter(name));
         if (StringUtils.isNotBlank(value)) {
-            value = JsoupUtil.clean(value);
+            value = xssFilter(value);
         }
         return value;
     }
 
     @Override
     public String[] getParameterValues(String name) {
-        String[] arr = super.getParameterValues(name);
-        if (arr != null) {
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = JsoupUtil.clean(arr[i]);
-            }
+        String[] parameters = super.getParameterValues(name);
+        if (parameters == null || parameters.length == 0) {
+            return null;
         }
-        return arr;
+
+        for (int i = 0; i < parameters.length; i++) {
+            parameters[i] = xssFilter(parameters[i]);
+        }
+        return parameters;
     }
 
-    /**
-     * 覆盖getHeader方法，将参数名和参数值都做xss过滤。<br/>
-     * 如果需要获得原始的值，则通过super.getHeaders(name)来获取<br/>
-     * getHeaderNames 也可能需要覆盖
-     */
+    @Override
+    public Map<String, String[]> getParameterMap() {
+        Map<String, String[]> map = new LinkedHashMap<>();
+        Map<String, String[]> parameters = super.getParameterMap();
+        for (String key : parameters.keySet()) {
+            String[] values = parameters.get(key);
+            for (int i = 0; i < values.length; i++) {
+                values[i] = xssFilter(values[i]);
+            }
+            map.put(key, values);
+        }
+        return map;
+    }
+
     @Override
     public String getHeader(String name) {
-        name = JsoupUtil.clean(name);
-        String value = super.getHeader(name);
+        String value = super.getHeader(xssFilter(name));
         if (StringUtils.isNotBlank(value)) {
-            value = JsoupUtil.clean(value);
+            value = xssFilter(value);
         }
         return value;
     }
 
     /**
-     * 获取最原始的request
-     *
-     * @return
+     * <b>
+     * #获取最原始的request
+     * </b>
      */
     public HttpServletRequest getOrgRequest() {
         return orgRequest;
     }
 
     /**
-     * 获取最原始的request的静态方法
+     * <b>
+     * #获取最原始的request
+     * </b>
      *
-     * @return
+     * @param request HttpServletRequest
      */
-    public static HttpServletRequest getOrgRequest(HttpServletRequest req) {
-        if (req instanceof XssHttpServletRequestWrapper) {
-            return ((XssHttpServletRequestWrapper) req).getOrgRequest();
+    public static HttpServletRequest getOrgRequest(HttpServletRequest request) {
+        if (request instanceof XssHttpServletRequestWrapper) {
+            return ((XssHttpServletRequestWrapper) request).getOrgRequest();
         }
-        return req;
-    }
-
-    @Override
-    public ServletInputStream getInputStream() throws IOException {
-        final ByteArrayInputStream bis = new ByteArrayInputStream(handInputStream(super.getInputStream()).getBytes());
-        return new ServletInputStream() {
-            @Override
-            public int read() throws IOException {
-                return bis.read();
-            }
-
-            @Override
-            public boolean isFinished() {
-                return false;
-            }
-
-            @Override
-            public boolean isReady() {
-                return false;
-            }
-
-            @Override
-            public void setReadListener(ReadListener readListener) {
-            }
-        };
+        return request;
     }
 
     /**
-     * RequestBody注解实际上是使用InputStream来处理
+     * <pre>
+     * servlet中inputStream只能一次读取，后续不能再次读取inputStream
+     * xss过滤body后，重新把流放入ServletInputStream中
+     * </pre>
      */
-    public String handInputStream(ServletInputStream servletInputStream) {
-        StringBuilder sb = new StringBuilder();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(servletInputStream, StandardCharsets.UTF_8));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        } catch (IOException e) {
-            log.info("Handle RequestBody Input Stream error:", e);
-        } finally {
-            if (servletInputStream != null) {
-                try {
-                    servletInputStream.close();
-                } catch (IOException e) {
-                    log.info("Handle RequestBody Input Stream error:", e);
-                }
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+    private static class RequestCachingInputStream extends ServletInputStream {
+        private final ByteArrayInputStream inputStream;
+
+        public RequestCachingInputStream(byte[] bytes) {
+            inputStream = new ByteArrayInputStream(bytes);
         }
-        return JsoupUtil.clean(sb.toString());
+
+        @Override
+        public int read() throws IOException {
+            return inputStream.read();
+        }
+
+        @Override
+        public boolean isFinished() {
+            return inputStream.available() == 0;
+        }
+
+        @Override
+        public boolean isReady() {
+            return true;
+        }
+
+        @Override
+        public void setReadListener(ReadListener readListener) {
+        }
     }
 }

@@ -3,7 +3,7 @@
  * File Name:Application.java
  * Package Name:me.kany.project.learning.spring
  * Date:2020年03月16日 10:36
- * Copyright (c) 2020, Jason.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring;
 
@@ -25,7 +25,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * ClassName:Application<br/>
+ * ClassName:XSSApplication<br/>
  * Function: 启动程序类<br/>
  * Date:2020年03月16日 10:36<br/>
  *
@@ -35,7 +35,7 @@ import java.time.format.DateTimeFormatter;
  * @since JDK1.8
  */
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class XSSApplication extends SpringBootServletInitializer {
     /**
      * main: 启动类型<br/>
      *
@@ -44,7 +44,7 @@ public class Application extends SpringBootServletInitializer {
      * @createTime 2019/4/22 21:38
      */
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(XSSApplication.class, args);
     }
 
     @Bean
@@ -55,7 +55,7 @@ public class Application extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
+        return application.sources(XSSApplication.class);
     }
 
     /**

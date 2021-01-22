@@ -112,6 +112,7 @@
         <javassist.version>3.27.0-GA</javassist.version>
         <asm.version>9.0</asm.version>
         <jsoup.version>1.10.2</jsoup.version>
+        <commons-io.version>2.6</commons-io.version>
     </properties>
 
     <dependencies>
