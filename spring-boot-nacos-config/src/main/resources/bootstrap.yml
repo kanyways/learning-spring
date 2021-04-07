@@ -9,9 +9,14 @@ spring:
       # 配置中心
       config:
         server-addr: 192.168.9.64
+        #配置方式yml，目前仅支持properties/yaml
         file-extension: yaml
-        group: DEFAULT_GROUP  # 缺省即可
-        prefix: ${spring.application.name} # 缺省即可
+        # 缺省即可
+        group: DEFAULT_GROUP
+        # 缺省即可
+        prefix: ${spring.application.name}
+        #默认开启自动刷新
+        refresh-enabled: true
 
 ## 日志的配置
 logging:

@@ -35,7 +35,6 @@ import java.time.format.DateTimeFormatter;
  * @see
  * @since JDK 8
  */
-@RefreshScope
 @SpringBootApplication
 public class NacosConfigApplication extends SpringBootServletInitializer {
     /**

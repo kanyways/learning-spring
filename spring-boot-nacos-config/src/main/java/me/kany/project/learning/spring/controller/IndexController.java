@@ -7,8 +7,7 @@
  */
 package me.kany.project.learning.spring.controller;
 
-import me.kany.project.learning.spring.config.NacosConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @see
  * @since JDK 8
  */
+@RefreshScope
 @RestController
 @RequestMapping("/")
 public class IndexController {
 
-    @Autowired
-    NacosConfig nacosConfig;
+    @Value(value = "${nacos.name}")
+    String name;
 
     /**
      * execute : 默认执行返回<br/>
@@ -41,6 +41,8 @@ public class IndexController {
      */
     @GetMapping("")
     public Object execute() {
-        return nacosConfig.name;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", name);
+        return jsonObject;
     }
 }
