@@ -3,7 +3,7 @@
  * File Name:JsoupUtil.java
  * Package Name:me.kany.project.learning.spring.utils
  * Date:2021年01月21日 15:55
- * Copyright (c) 2021, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.utils;
 
@@ -20,7 +20,7 @@ import java.util.List;
  * Function: JsoupUtil<br/>
  * Date:2021年01月21日 15:55<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0
  * @see
  * @since JDK 8

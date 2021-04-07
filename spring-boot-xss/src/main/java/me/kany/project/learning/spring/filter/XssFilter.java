@@ -3,7 +3,7 @@
  * File Name:XssFilter.java
  * Package Name:me.kany.project.learning.spring.filter
  * Date:2021年01月21日 15:49
- * Copyright (c) 2021, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.filter;
 
@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * Function: 创建XSSFilter<br/>
  * Date:2021年01月21日 15:49<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0
  * @see
  * @since JDK 8

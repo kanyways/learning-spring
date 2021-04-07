@@ -3,7 +3,7 @@
  * File Name:XssHttpServletRequestWrapper.java
  * Package Name:me.kany.project.learning.spring.wrapper
  * Date:2021年01月21日 15:52
- * Copyright (c) 2021, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.wrapper;
 
@@ -27,7 +27,7 @@ import java.util.Map;
  * Function: XSS的自定义过滤器<br/>
  * Date:2021年01月21日 15:52<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0
  * @see
  * @since JDK 8

@@ -48,6 +48,8 @@
         <module>spring-boot-oss-ueditor</module>
         <module>java-agent</module>
         <module>spring-boot-xss</module>
+        <!--Nacos Config-->
+        <module>spring-boot-nacos-config</module>
     </modules>
 
     <properties>
@@ -113,6 +115,8 @@
         <asm.version>9.0</asm.version>
         <jsoup.version>1.10.2</jsoup.version>
         <commons-io.version>2.6</commons-io.version>
+        <!-- Nacos Config -->
+        <nacos.version>2.2.5.RELEASE</nacos.version>
     </properties>
 
     <dependencies>

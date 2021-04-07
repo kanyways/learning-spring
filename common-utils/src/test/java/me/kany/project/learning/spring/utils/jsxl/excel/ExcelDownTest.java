@@ -3,7 +3,7 @@
  * File Name:ExcelDownTest.java
  * Package Name:me.kany.project.learning.spring.utils.jsxl.excel
  * Date:2020年12月16日 2:04
- * Copyright (c) 2020, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2020, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.utils.jsxl.excel;
 
@@ -36,7 +36,7 @@ import java.util.*;
  * Function: 测试JXSL导出数据<br/>
  * Date:2020年12月16日 2:04<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0
  * @see
  * @since JDK 1.8

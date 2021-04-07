@@ -3,7 +3,7 @@
  * File Name:Md2Test.java
  * Package Name:me.kany.project.learning.spring.md2
  * Date:2020年10月21日 13:59
- * Copyright (c) 2020, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2020, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.md2;
 
@@ -22,7 +22,7 @@ import java.nio.charset.Charset;
  * Function: MD2加密<br/>
  * Date:2020年10月21日 13:59<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0
  * @see
  * @since JDK 8
