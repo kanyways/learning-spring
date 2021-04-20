@@ -152,10 +152,10 @@ public class AliyunOssServiceImpl implements IOssService {
         OSSClient ossClient = null;
         try {
             ossClient = new OSSClient(map.get("webSite"), new DefaultCredentialProvider(map.get("accessKeyId"), map.get("accessKeySecret"), map.get("securityToken")), null);
-            PolicyConditions policyConds = new PolicyConditions();
-            policyConds.addConditionItem(PolicyConditions.COND_CONTENT_LENGTH_RANGE, 0, maxSize);
-            policyConds.addConditionItem(MatchMode.StartWith, PolicyConditions.COND_KEY, dir);
-            String postPolicy = ossClient.generatePostPolicy(expiration, policyConds);
+            PolicyConditions policyCondos = new PolicyConditions();
+            policyCondos.addConditionItem(PolicyConditions.COND_CONTENT_LENGTH_RANGE, 0, maxSize);
+            policyCondos.addConditionItem(MatchMode.StartWith, PolicyConditions.COND_KEY, dir);
+            String postPolicy = ossClient.generatePostPolicy(expiration, policyCondos);
             byte[] binaryData = postPolicy.getBytes("utf-8");
             String policy = BinaryUtil.toBase64String(binaryData);
             String signature = ossClient.calculatePostSignature(postPolicy);
@@ -190,7 +190,7 @@ public class AliyunOssServiceImpl implements IOssService {
     public OssCallbackResult getCallback(HttpServletRequest request) {
         OssCallbackResult result = new OssCallbackResult();
         String filename = request.getParameter("filename");
-        filename = "http://".concat(ossConfig.getBucketName()).concat(".").concat(ossConfig.getEndpoint()).concat("/").concat(filename);
+        filename = "https://".concat(ossConfig.getBucketName()).concat(".").concat(ossConfig.getEndpoint()).concat("/").concat(filename);
         result.setFilename(filename);
         result.setSize(request.getParameter("size"));
         result.setMimeType(request.getParameter("mimeType"));

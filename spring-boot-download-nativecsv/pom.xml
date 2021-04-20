@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>RELEASE</version>
+            <version>${druid.version}</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.log4jdbc</groupId>

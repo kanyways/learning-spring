@@ -16,18 +16,8 @@
 
 
     <properties>
-        <!-- mybatis plus -->
-        <mybaitsplus.version>2.1.9</mybaitsplus.version>
         <!-- 环境变量 -->
         <package.environment>src/main/resources/local</package.environment>
-        <!-- 指定Servlet版本 -->
-        <servlet.version>3.0</servlet.version>
-        <!-- Servlet版本 -->
-        <jstl.version>1.2</jstl.version>
-        <!-- aspectj 切片配置 -->
-        <aspectj.version>1.9.4</aspectj.version>
-        <!-- 文件上传组建 -->
-        <commons-fileupload.version>1.4</commons-fileupload.version>
     </properties>
 
     <dependencies>

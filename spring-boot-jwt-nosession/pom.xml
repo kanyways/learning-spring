@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>RELEASE</version>
+            <version>${druid.version}</version>
         </dependency>
         <!-- 添加p6spy日志记录 -->
         <dependency>

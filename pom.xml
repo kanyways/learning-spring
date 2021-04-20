@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.kany.project.learning.spring</groupId>
@@ -50,6 +51,8 @@
         <module>spring-boot-xss</module>
         <!--Nacos Config-->
         <module>spring-boot-nacos-config</module>
+        <!-- Spring Cloud -->
+        <module>spring-cloud-alibaba</module>
     </modules>
 
     <properties>
@@ -59,7 +62,7 @@
         <springloaded.version>RELEASE</springloaded.version>
         <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
         <mysql.version>8.0.18</mysql.version>
-        <druid.version>1.1.20</druid.version>
+        <druid.version>1.1.24</druid.version>
         <!-- MyBatis 版本 -->
         <mybatis.version>3.5.2</mybatis.version>
         <!-- MyBatis Spring的版本 -->
@@ -117,6 +120,16 @@
         <commons-io.version>2.6</commons-io.version>
         <!-- Nacos Config -->
         <nacos.version>2.2.5.RELEASE</nacos.version>
+        <!-- mybatis plus -->
+        <mybaitsplus.version>2.1.9</mybaitsplus.version>
+        <!-- 指定Servlet版本 -->
+        <servlet.version>3.0</servlet.version>
+        <!-- Servlet版本 -->
+        <jstl.version>1.2</jstl.version>
+        <!-- aspectj 切片配置 -->
+        <aspectj.version>1.9.4</aspectj.version>
+        <!-- 文件上传组建 -->
+        <commons-fileupload.version>1.4</commons-fileupload.version>
     </properties>
 
     <dependencies>
