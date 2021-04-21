@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 9000
 
 spring:
   application:
-    name: nacos-provider
+    name: nacos-consumer-feign
   cloud:
     nacos:
       discovery:

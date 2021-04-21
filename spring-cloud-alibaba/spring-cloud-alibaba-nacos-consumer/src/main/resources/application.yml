@@ -30,6 +30,8 @@ logging:
     console: ${CONSOLE_LOG_PATTERN:【%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint}】 %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
     file: 【%d{yyyy-MM-dd HH:mm:ss.SSS}】 %-5level [%thread] --- %logger --- %msg%n
   file:
-    max-history: 20
-    max-size: 20MB
     path: logs/
+  logback:
+    rollingpolicy:
+      max-history: 20
+      max-file-size: 20MB
