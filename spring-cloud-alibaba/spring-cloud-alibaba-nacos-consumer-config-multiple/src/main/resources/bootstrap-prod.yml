@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: nacos-consumer-config
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.9.64
+        file-extension: yaml
+
+

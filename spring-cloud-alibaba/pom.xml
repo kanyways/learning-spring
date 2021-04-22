@@ -10,7 +10,7 @@
     </parent>
     <groupId>me.kany.project.learning.spring.cloud</groupId>
     <artifactId>spring-cloud-alibaba</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0.0</version>
     <packaging>pom</packaging>
 
     <name>spring-cloud-alibaba</name>
@@ -25,6 +25,10 @@
         <module>spring-cloud-alibaba-nacos-consumer-feign</module>
         <!--远程读取配置文件并运行-->
         <module>spring-cloud-alibaba-nacos-consumer-config</module>
+        <!--多配置环境-->
+        <module>spring-cloud-alibaba-nacos-consumer-config-multiple</module>
+        <!--使用Sentinel熔断处理-->
+        <module>spring-cloud-alibaba-nacos-consumer-sentinel</module>
     </modules>
 
     <properties>

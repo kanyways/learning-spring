@@ -8,8 +8,7 @@
         <version>1.0.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>spring-cloud-alibaba-nacos-consumer-feign</artifactId>
+    <artifactId>spring-cloud-alibaba-nacos-consumer-sentinel</artifactId>
 
     <dependencies>
         <!-- Spring Boot Begin -->
@@ -28,6 +27,19 @@
         </dependency>
         <!-- Spring Boot End -->
 
+        <!-- Nacos Config Start -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- 一定要加上，目前版本不能正常读取bootstrap.yml文件, @see https://blog.csdn.net/qq_40196401/article/details/115057647 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <!-- Nacos Config End -->
+
         <!-- Spring Cloud Begin -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -44,6 +56,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-loadbalancer</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-sentinel -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -57,11 +74,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config.NacosConsumerFeignApplication
+                    <mainClass>
+                        me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.sentinel.NacosConsumerSentinelApplication
                     </mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

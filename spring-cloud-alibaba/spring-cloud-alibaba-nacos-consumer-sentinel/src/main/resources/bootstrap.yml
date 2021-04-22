@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: nacos-consumer-sentinel-config
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 192.168.9.64
+        #配置方式yml，目前仅支持properties/yaml
+        file-extension: yaml
