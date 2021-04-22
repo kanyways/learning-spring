@@ -21,7 +21,10 @@
         <module>spring-cloud-alibaba-nacos-provider</module>
         <!--服务消费者-->
         <module>spring-cloud-alibaba-nacos-consumer</module>
+        <!--启用Feign接入-->
         <module>spring-cloud-alibaba-nacos-consumer-feign</module>
+        <!--远程读取配置文件并运行-->
+        <module>spring-cloud-alibaba-nacos-consumer-config</module>
     </modules>
 
     <properties>

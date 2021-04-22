@@ -57,7 +57,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.NacosConsumerFeignApplication
+                    <mainClass>me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config.NacosConsumerFeignApplication
                     </mainClass>
                 </configuration>
             </plugin>

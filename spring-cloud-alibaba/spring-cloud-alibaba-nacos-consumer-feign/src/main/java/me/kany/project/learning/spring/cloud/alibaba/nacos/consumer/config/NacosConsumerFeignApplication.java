@@ -5,7 +5,7 @@
  * Date:2021年04月21日 11:28
  * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
-package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer;
+package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

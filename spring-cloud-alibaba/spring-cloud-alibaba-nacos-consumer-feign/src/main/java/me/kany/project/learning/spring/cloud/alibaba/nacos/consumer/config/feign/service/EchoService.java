@@ -5,7 +5,7 @@
  * Date:2021年04月21日 11:33
  * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
-package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.feign.service;
+package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config.feign.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

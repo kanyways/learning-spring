@@ -1,13 +1,13 @@
 /**
  * Project Name:learning-spring
- * File Name:NacosConsumerFeignController.java
+ * File Name:NacosConsumerConfigController.java
  * Package Name:me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.feign.controller
  * Date:2021年04月21日 11:40
  * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
-package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.feign.controller;
+package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config.feign.controller;
 
-import me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.feign.service.EchoService;
+import me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config.feign.service.EchoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

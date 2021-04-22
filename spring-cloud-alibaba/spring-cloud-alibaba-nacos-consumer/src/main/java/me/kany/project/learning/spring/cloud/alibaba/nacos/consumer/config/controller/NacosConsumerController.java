@@ -5,7 +5,7 @@
  * Date:2021年04月21日 11:02
  * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
-package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.controller;
+package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.config.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
