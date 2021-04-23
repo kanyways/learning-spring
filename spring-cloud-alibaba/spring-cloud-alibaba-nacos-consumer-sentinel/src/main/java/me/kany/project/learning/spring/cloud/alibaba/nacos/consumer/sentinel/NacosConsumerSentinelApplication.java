@@ -3,7 +3,7 @@
  * File Name:NacosConsumerSentinelApplication.java
  * Package Name:me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.sentinel
  * Date:2021年04月22日 15:28
- * Copyright (c) 2021, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.sentinel;
 
@@ -17,7 +17,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * Function: 使用Sentinel接管熔断<br/>
  * Date:2021年04月22日 15:28<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0.0
  * @see
  * @since JDK 8

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-dubbo</artifactId>
+        <groupId>me.kany.project.learning.spring.cloud</groupId>
+        <version>1.0.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>spring-cloud-dubbo-nacos-provider</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!--对外发布的接口服务-->
+        <module>spring-cloud-dubbo-nacos-provider-api</module>
+        <!--真正实现业务的接口-->
+        <module>spring-cloud-dubbo-nacos-provider-service</module>
+    </modules>
+
+</project>

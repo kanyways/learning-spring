@@ -53,6 +53,7 @@
         <module>spring-boot-nacos-config</module>
         <!-- Spring Cloud -->
         <module>spring-cloud-alibaba</module>
+        <module>spring-cloud-dubbo</module>
     </modules>
 
     <properties>
@@ -189,7 +190,7 @@
                 <updatePolicy>always</updatePolicy>
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <layout>default</layout>
         </repository>
         <repository>
@@ -213,7 +214,7 @@
         <pluginRepository>
             <id>nexus-aliyun</id>
             <name>Nexus aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>

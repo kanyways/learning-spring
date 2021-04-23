@@ -3,7 +3,7 @@
  * File Name:EchoController.java
  * Package Name:me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.sentinel.controller
  * Date:2021年04月22日 15:33
- * Copyright (c) 2021, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.cloud.alibaba.nacos.consumer.sentinel.controller;
 
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Function: 输出控制器<br/>
  * Date:2021年04月22日 15:33<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0.0
  * @see
  * @since JDK 8
