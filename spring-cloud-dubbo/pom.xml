@@ -12,7 +12,10 @@
     <artifactId>spring-cloud-dubbo</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <!--配置服务提供者-->
         <module>spring-cloud-dubbo-nacos-provider</module>
+        <!--服务消费者-->
+        <module>spring-cloud-dubbo-nacos-consumer</module>
     </modules>
 
     <properties>
