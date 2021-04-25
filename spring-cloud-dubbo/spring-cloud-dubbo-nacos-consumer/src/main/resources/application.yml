@@ -8,6 +8,8 @@ spring:
 dubbo:
   registry:
     address: nacos://192.168.9.64:8848
+  protocol:
+    serialization: kryo
 
 endpoints:
   dubbo:

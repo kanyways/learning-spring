@@ -38,6 +38,13 @@
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-serialization-kryo -->
+        <!--由于Dubbo默认序列化效率问题，我们采用Java语言kryo、FST，跨语言的有，Protostuff、ProtoBuf、Thrift，Avro、MsgPack等，优选Kryo、Thrift;-->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-serialization-kryo</artifactId>
+            <version>${dubbo-kryo.version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.alibaba.nacos/nacos-client -->
         <dependency>
             <groupId>com.alibaba.nacos</groupId>

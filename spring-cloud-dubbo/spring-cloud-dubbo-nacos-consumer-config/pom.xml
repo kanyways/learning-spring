@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-dubbo-nacos-consumer</artifactId>
+    <artifactId>spring-cloud-dubbo-nacos-consumer-config</artifactId>
 
     <dependencies>
         <!--Project Start-->
@@ -34,6 +34,19 @@
             <scope>test</scope>
         </dependency>
         <!-- Spring Boot End -->
+
+        <!-- Nacos Config Start -->
+        <!-- https://mvnrepository.com/artifact/com.alibaba.cloud/spring-cloud-starter-alibaba-nacos-config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- 一定要加上，目前版本不能正常读取bootstrap.yml文件, @see https://blog.csdn.net/qq_40196401/article/details/115057647 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <!-- Nacos Config End -->
 
         <!--Dubbo Start-->
         <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter -->
@@ -65,7 +78,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>
-                        me.kany.project.learning.spring.cloud.dubbo.consumer.DubboConsumerApplication
+                        me.kany.project.learning.spring.cloud.dubbo.consumer.config.DubboConsumerConfigApplication
                     </mainClass>
                 </configuration>
             </plugin>
