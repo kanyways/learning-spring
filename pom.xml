@@ -54,6 +54,8 @@
         <!-- Spring Cloud -->
         <module>spring-cloud-alibaba</module>
         <module>spring-cloud-dubbo</module>
+        <!-- User HikariCP DataBase Pool -->
+        <module>spring-boot-print-mybatis-hikaricp-log4jdbc-logs</module>
     </modules>
 
     <properties>
@@ -131,6 +133,8 @@
         <aspectj.version>1.9.4</aspectj.version>
         <!-- 文件上传组建 -->
         <commons-fileupload.version>1.4</commons-fileupload.version>
+        <!-- HikariCP Version -->
+        <hikaricp.version>4.0.3</hikaricp.version>
     </properties>
 
     <dependencies>

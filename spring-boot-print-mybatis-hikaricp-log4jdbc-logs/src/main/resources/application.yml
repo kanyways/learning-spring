@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-print-mybatis-hikaricp-log4jdbc-logs
+  aop:
+    auto: true
+  thymeleaf:
+    cache: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    name: user
+    url: jdbc:log4jdbc:mysql://119.29.185.228:3306/user?characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=true
+    username: root
+    password: 密码
+    driver-class-name: net.sf.log4jdbc.DriverSpy
+    type: com.zaxxer.hikari.HikariDataSource
+    # HikariCP连接池配置（springboot2.0默认连接池，效率最高，没有sql拦截，无需引入依赖信息）
+    hikari:
+      minimum-idle: 5   # 最小空闲连接数量
+      idle-timeout: 180000   #  空闲连接存活最大时间，默认600000（10分钟）
+      maximum-pool-size: 20 # 连接池最大连接数，默认是10
+      auto-commit: true # 控制从池返回的链接的默认自动提交行为，默认值：true
+      pool-name: MyHikariCP # 连接池母子
+      max-lifetime: 1800000 # 控制池中链接的最长生命周期，值0表示无限生命周期，默认1800000，即30分钟
+      connection-timeout: 30000 # 数据库链接超时时间，默认30秒，即30000
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:me/kany/project/learning/spring/mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: me.kany.project.learning.spring.entity  # 注意：对应实体类的路径
+
+## 日志的配置
+logging:
+  level:
+    ROOT: DEBUG
+    org.thymeleaf.TemplateEngine: INFO
+    org.springframework.boot.autoconfigure.logging: INFO
+    org.springframework.core.env.PropertySourcesPropertyResolver: INFO
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: INFO
+    me.kany.project.learning: DEBUG
+    me.kany.project.learning.mapper: INFO
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:【%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint}】 %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
+    file: 【%d{yyyy-MM-dd HH:mm:ss.SSS}】 %-5level [%thread] --- %logger --- %msg%n
+  file:
+    max-history: 20
+    max-size: 20MB
+    path: logs/
