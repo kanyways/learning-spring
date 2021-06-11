@@ -94,6 +94,11 @@
             <artifactId>jxls-poi</artifactId>
             <version>1.0.15</version>
         </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.64</version>
+        </dependency>
     </dependencies>
 
 </project>
