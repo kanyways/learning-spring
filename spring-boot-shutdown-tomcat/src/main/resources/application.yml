@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-shutdown-tomcat
+  aop:
+    auto: true
+  thymeleaf:
+    cache: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+## 日志的配置
+logging:
+  level:
+    ROOT: DEBUG
+    org.thymeleaf.TemplateEngine: INFO
+    org.springframework.boot.autoconfigure.logging: INFO
+    org.springframework.core.env.PropertySourcesPropertyResolver: INFO
+    org.springframework.beans.factory.support.DefaultListableBeanFactory: INFO
+    me.kany.project.learning: DEBUG
+    me.kany.project.learning.mapper: INFO
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:【%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint}】 %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
+    file: 【%d{yyyy-MM-dd HH:mm:ss.SSS}】 %-5level [%thread] --- %logger --- %msg%n
+  file:
+    max-history: 20
+    max-size: 20MB
+    path: logs/

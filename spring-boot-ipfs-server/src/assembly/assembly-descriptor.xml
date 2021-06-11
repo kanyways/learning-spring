@@ -1,0 +1,42 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd
+http://maven.apache.org/ASSEMBLY/2.0.0
+http://maven.apache.org/ASSEMBLY/2.0.0 ">
+	<id>descriptor</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>src/assembly</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>*.sh</include>
+			</includes>
+			<fileMode>0755</fileMode>
+			<lineEnding>unix</lineEnding>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/classes</directory>
+			<outputDirectory>classes</outputDirectory>
+			<includes>
+				<include>*.yml</include>
+				<include>*.xml</include>
+				<include>*.db</include>
+				<include>*.ftl</include>
+				<include>*.ini</include>
+				<include>*.conf</include>
+				<include>ip2region/**</include>
+				<include>templates/**</include>
+				<include>scripts/**</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+</assembly>

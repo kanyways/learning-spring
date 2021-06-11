@@ -56,6 +56,16 @@
         <module>spring-cloud-dubbo</module>
         <!-- User HikariCP DataBase Pool -->
         <module>spring-boot-print-mybatis-hikaricp-log4jdbc-logs</module>
+        <!--IPFS Server-->
+        <module>spring-boot-ipfs-server</module>
+        <!--默认优雅关闭方式-->
+        <module>spring-boot-shutdown-default</module>
+        <!--Tomcat优雅关闭方式-->
+        <module>spring-boot-shutdown-tomcat</module>
+        <!--Undertow优雅关闭方式-->
+        <module>spring-boot-shutdown-undertow</module>
+        <!--Jetty优雅关闭方式，默认支持-->
+        <module>spring-boot-shutdown-jetty</module>
     </modules>
 
     <properties>

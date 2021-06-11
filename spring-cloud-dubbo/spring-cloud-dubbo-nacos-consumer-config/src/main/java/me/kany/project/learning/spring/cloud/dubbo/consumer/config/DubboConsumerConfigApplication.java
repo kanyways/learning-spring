@@ -3,7 +3,7 @@
  * File Name:DubboConsumerConfigApplication.java
  * Package Name:me.kany.project.learning.spring.cloud.dubbo.consumer.config
  * Date:2021年04月25日 12:06
- * Copyright (c) 2021, Kai.Wang All Rights Reserved.
+ * Copyright (c) 2021, Jason.Wang All Rights Reserved.
  */
 package me.kany.project.learning.spring.cloud.dubbo.consumer.config;
 
@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Function: 远端读取配置文件<br/>
  * Date:2021年04月25日 12:06<br/>
  *
- * @author Kai.Wang
+ * @author Jason.Wang
  * @version 1.0.0.0
  * @see
  * @since JDK 8
