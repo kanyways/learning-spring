@@ -68,6 +68,7 @@
         <module>spring-boot-shutdown-jetty</module>
         <!--Spring Native-->
         <module>spring-native-ipfs-server</module>
+        <module>spring-boot-json-space-trim</module>
     </modules>
 
     <properties>
