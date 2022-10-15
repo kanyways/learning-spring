@@ -70,6 +70,8 @@
         <module>spring-native-ipfs-server</module>
         <module>spring-boot-json-space-trim</module>
         <module>spring-boot-monitor</module>
+        <!-- RabbitMQ 发送消息 -->
+        <module>spring-boot-rabbitmq-message-one-consumer</module>
     </modules>
 
     <properties>
