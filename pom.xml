@@ -114,7 +114,7 @@
         <slf4j-api.version>1.7.28</slf4j-api.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.7.28</slf4j.version>
-        <logback.version>1.2.3</logback.version>
+        <logback.version>1.2.9</logback.version>
         <jackson.version>2.10.0</jackson.version>
         <logstash-logback.version>4.8</logstash-logback.version>
         <!-- log4jdbc 的版本 -->
