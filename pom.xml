@@ -76,6 +76,8 @@
         <module>spring-boot-rabbitmq-message-two-consumer</module>
         <!-- 手动确认 -->
         <module>spring-boot-rabbitmq-message-one-consumer-with-ack</module>
+        <!--双消费者手动确认-->
+        <module>spring-boot-rabbitmq-message-two-consumer-with-ack</module>
 
     </modules>
 
