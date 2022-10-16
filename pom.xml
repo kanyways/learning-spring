@@ -72,6 +72,9 @@
         <module>spring-boot-monitor</module>
         <!-- RabbitMQ 发送消息 -->
         <module>spring-boot-rabbitmq-message-one-consumer</module>
+        <!--双消费者-->
+        <module>spring-boot-rabbitmq-message-two-consumer</module>
+
     </modules>
 
     <properties>
