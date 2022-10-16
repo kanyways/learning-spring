@@ -74,7 +74,6 @@
         <module>spring-boot-rabbitmq-message-one-consumer</module>
         <!--双消费者-->
         <module>spring-boot-rabbitmq-message-two-consumer</module>
-
     </modules>
 
     <properties>
@@ -135,7 +134,7 @@
         <!--HuTool 工具类-->
         <hutool.version>5.2.1</hutool.version>
         <!--bouncycastle 的加密工具包-->
-        <bcprov.version>1.66</bcprov.version>
+        <bcprov.version>1.67</bcprov.version>
         <javassist.version>3.27.0-GA</javassist.version>
         <asm.version>9.0</asm.version>
         <jsoup.version>1.10.2</jsoup.version>
