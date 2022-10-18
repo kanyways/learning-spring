@@ -1,0 +1,31 @@
+# Spring 的配置
+spring:
+  # RabbitMQ 消息中间件
+  rabbitmq:
+    # RabbitMQ 服务地址
+    addresses: 10.10.1.83:5672,10.10.1.83:5673,10.10.1.83:5674
+    # 用户名称
+    username: admin
+    # 用户密码
+    password: admin
+    # 确认消息已发送到交换机上
+    publisher-confirm-type: correlated
+    # 确认消息已发送到队列
+    publisher-returns: true
+    # 监听信息
+    listener:
+      simple:
+        # 开启手动ACK
+        acknowledge-mode: manual
+        retry:
+          # 是否开启重试
+          enabled: true
+          # 重试时间间隔 ms
+          initial-interval: 3000ms
+          # 重试最大时间间隔 ms
+          max-interval: 15000ms
+          # 重试次数
+          multiplier: 2
+      # 开启手动ACK
+      direct:
+        acknowledge-mode: manual
