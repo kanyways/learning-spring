@@ -80,6 +80,10 @@
         <module>spring-boot-rabbitmq-message-two-consumer-with-ack</module>
         <!--双消费者并告知消费结果-->
         <module>spring-boot-rabbitmq-message-two-consumer-with-callback</module>
+        <!-- 延迟消息 -->
+        <module>spring-boot-rabbitmq-delay-message</module>
+        <!-- netty配置 -->
+        <module>netty</module>
     </modules>
 
     <properties>
