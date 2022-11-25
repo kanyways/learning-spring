@@ -84,6 +84,7 @@
         <module>spring-boot-rabbitmq-delay-message</module>
         <!-- netty配置 -->
         <module>netty</module>
+        <module>spring-boot-fastjson2-space-trim</module>
     </modules>
 
     <properties>
@@ -111,6 +112,7 @@
         <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
         <!-- 阿里巴巴fastjson版本 -->
         <fastjson.version>1.2.70</fastjson.version>
+        <fastjson2.version>2.0.19</fastjson2.version>
         <!-- POI的版本，这个版本使用shiftRows正常 -->
         <poi.version>3.17</poi.version>
         <!-- guava的版本 -->
