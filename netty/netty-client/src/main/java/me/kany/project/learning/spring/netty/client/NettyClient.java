@@ -10,6 +10,8 @@ package me.kany.project.learning.spring.netty.client;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
+import me.kany.project.learning.spring.netty.client.listener.ClientConnectStatusListener;
+import me.kany.project.learning.spring.netty.client.listener.CustomerEventListener;
 import me.kany.project.learning.spring.netty.utils.ClientInterface;
 import me.kany.project.learning.spring.netty.utils.impl.NettyTcpClient;
 import me.kany.project.learning.spring.netty.utils.message.Message;
@@ -62,7 +64,7 @@ public class NettyClient {
             }
             clientInterface = NettyTcpClient.getInstance();
             updateAppStatus(appStatus);
-            clientInterface.init(serverUrlList, new IMSEventListener(userId, token), new ConnectStatusListener());
+            clientInterface.init(serverUrlList, new CustomerEventListener(userId, token), new ClientConnectStatusListener());
         }
     }
 
