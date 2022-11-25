@@ -54,7 +54,7 @@ public interface ExcelUtils<T> {
             if (logger.isDebugEnabled()) {
                 logger.debug("模版文件为空");
             }
-            throw new RuntimeException("template file is not exits");
+            throw new RuntimeException("templates file is not exits");
         }
         if (CollectionUtils.isEmpty(list)) {
             if (logger.isDebugEnabled()) {

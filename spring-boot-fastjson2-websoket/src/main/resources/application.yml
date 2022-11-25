@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-boot-websocket
+  aop:
+    auto: true
+  thymeleaf:
+    cache: false
+
+## 常规配置文件
+constant:
+  sendMessageFixedRate: 1000

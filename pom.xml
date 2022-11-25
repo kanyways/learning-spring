@@ -85,6 +85,7 @@
         <!-- netty配置 -->
         <module>netty</module>
         <module>spring-boot-fastjson2-space-trim</module>
+        <module>spring-boot-fastjson2-websoket</module>
     </modules>
 
     <properties>

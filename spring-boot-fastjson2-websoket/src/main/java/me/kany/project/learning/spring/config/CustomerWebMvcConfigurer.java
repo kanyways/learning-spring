@@ -1,4 +1,12 @@
+/**
+ * Project Name:learning-spring
+ * File Name:CustomerWebMvcConfigurer.java
+ * Package Name:me.kany.project.learning.spring.config
+ * Date:2022-11-26 12:33 AM
+ * Copyright (c) 2022, Jason.Wang All Rights Reserved.
+ */
 package me.kany.project.learning.spring.config;
+
 
 import com.alibaba.fastjson2.JSONReader;
 import com.alibaba.fastjson2.JSONWriter;
@@ -12,26 +20,27 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
+ * ClassName: CustomerWebMvcConfigurer<br/>
+ * Function: 配置文件<br/>
+ * Date: 2022-11-26 12:33 AM<br/>
+ *
  * @author Jason.Wang
+ * @version 1.0.0
+ * @see
+ * @since JDK 1.8
  */
 @EnableWebMvc
 @Configuration
 public class CustomerWebMvcConfigurer implements WebMvcConfigurer {
 
     /**
-     * Extend or modify the list of converters after it has been, either
-     * {@link #configureMessageConverters(List) configured} or initialized with
-     * a default list.
-     * <p>Note that the order of converter registration is important. Especially
-     * in cases where clients accept {@link MediaType#ALL}
-     * the converters configured earlier will be preferred.
+     * 与org.springframework.web.servlet.config.annotation.WebMvcConfigurer.configureMessageConverters()方法的区别是：
+     *  使用configureMessageConverters方法会导致springboot不会注入默认的消息转换器
      *
-     * @param converters the list of configured converters to be extended
-     * @since 4.1.3
+     * @param converters
      */
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -47,6 +56,5 @@ public class CustomerWebMvcConfigurer implements WebMvcConfigurer {
         supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         converter.setSupportedMediaTypes(supportedMediaTypes);
         converters.add(0, converter);
-        WebMvcConfigurer.super.extendMessageConverters(converters);
     }
 }
