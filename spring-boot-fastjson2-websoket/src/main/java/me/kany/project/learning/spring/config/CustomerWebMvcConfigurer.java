@@ -7,7 +7,6 @@
  */
 package me.kany.project.learning.spring.config;
 
-
 import com.alibaba.fastjson2.JSONReader;
 import com.alibaba.fastjson2.JSONWriter;
 import com.alibaba.fastjson2.support.config.FastJsonConfig;
@@ -38,7 +37,7 @@ public class CustomerWebMvcConfigurer implements WebMvcConfigurer {
 
     /**
      * 与org.springframework.web.servlet.config.annotation.WebMvcConfigurer.configureMessageConverters()方法的区别是：
-     *  使用configureMessageConverters方法会导致springboot不会注入默认的消息转换器
+     * 使用configureMessageConverters方法会导致springboot不会注入默认的消息转换器
      *
      * @param converters
      */
@@ -56,5 +55,6 @@ public class CustomerWebMvcConfigurer implements WebMvcConfigurer {
         supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
         converter.setSupportedMediaTypes(supportedMediaTypes);
         converters.add(0, converter);
+        WebMvcConfigurer.super.extendMessageConverters(converters);
     }
 }
