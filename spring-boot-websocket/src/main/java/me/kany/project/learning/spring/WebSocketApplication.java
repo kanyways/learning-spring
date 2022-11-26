@@ -1,6 +1,6 @@
 /**
  * Project Name:learning-spring
- * File Name:Application.java
+ * File Name:WebSocketApplication.java
  * Package Name:me.kany.project.learning.spring
  * Date:2019年10月25日 11:01
  * Copyright (c) 2019, Jason.Wang All Rights Reserved.
@@ -26,7 +26,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * ClassName:Application<br/>
+ * ClassName:WebSocketApplication<br/>
  * Function: 默认启动程序<br/>
  * Date:2019年10月25日 11:01<br/>
  * shi
@@ -38,7 +38,7 @@ import java.time.format.DateTimeFormatter;
  */
 @EnableScheduling
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class WebSocketApplication extends SpringBootServletInitializer {
     /**
      * main: 启动类型<br/>
      *
@@ -47,7 +47,7 @@ public class Application extends SpringBootServletInitializer {
      * @createTime 2019/4/22 21:38
      */
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(WebSocketApplication.class, args);
     }
 
     @Bean
@@ -58,7 +58,7 @@ public class Application extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
+        return application.sources(WebSocketApplication.class);
     }
 
     /**
