@@ -27,7 +27,7 @@
         <!-- aspectj 切片配置 -->
         <aspectj.version>1.9.4</aspectj.version>
         <!-- 文件上传组建 -->
-        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-fileupload.version>1.5</commons-fileupload.version>
     </properties>
 
     <dependencies>
