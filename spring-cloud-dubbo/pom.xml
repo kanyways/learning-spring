@@ -32,7 +32,7 @@
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
 
         <!-- Dubbo Setting -->
-        <dubbo.version>2.7.18</dubbo.version>
+        <dubbo.version>2.7.21</dubbo.version>
         <dubbo-kryo.version>2.7.10</dubbo-kryo.version>
         <nacos.version>1.4.1</nacos.version>
     </properties>
